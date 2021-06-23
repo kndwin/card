@@ -1,14 +1,29 @@
-import { Snippet, Button, Row, Display, Text } from '@geist-ui/react'
-import { Suspense } from 'react'
+import { Button, Row, Display, Text } from '@geist-ui/react'
+import { NextDotJs, Typescript, ThreeDotJs } from '@icons-pack/react-simple-icons';
+import { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { FaceModel } from 'components'
 import { Layout } from 'components'
 import { Twitter, Github } from '@geist-ui/react-icons'
 
 export default function Home() {
+	const [mounted,setMounted] = useState(false)
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+	if (!mounted) {
+		return null
+	}
 	return (
 		<Layout>
+			<Row style={{ display: 'flex', justifyContent: 'center'}}>
+				<Text h4>
+					kndwin
+				</Text>
+			</Row>
+			{ mounted &&
 			<Display shadow 
+				style={{ margin: '1em 0 0 0'}}
 				caption={`🔨 wannabe full stack engineer`}>
 				<Canvas style={{ height: '20em' }} orthographic camera={{zoom: 30}}>
 					<ambientLight intensity={1} />
@@ -17,6 +32,12 @@ export default function Home() {
 					</Suspense>
 				</Canvas>
 			</Display>
+			}
+			<Row style={{ display: 'flex', justifyContent: 'center', margin: '2em 0'}}>
+				<NextDotJs />
+				<Typescript style={{ margin: '0 1em'}} />
+				<ThreeDotJs />
+			</Row>
 			<Row style={{ display: 'flex', justifyContent: 'center'}}>
 				<a href="https://github.com/kndwin">
 					<Button icon={<Github/>} 
