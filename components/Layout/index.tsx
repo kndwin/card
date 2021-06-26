@@ -1,4 +1,5 @@
-import { Page } from '@geist-ui/react'
+import { Row, Spacer, Text, Link, Page, Toggle } from '@geist-ui/react'
+import {useRouter} from 'next/dist/client/router'
 import React, { ReactElement } from "react"
 
 export interface LayoutProps {
@@ -6,13 +7,32 @@ export interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps): ReactElement | null {
+	const router = useRouter()
+	const route = router.route
+	const links = [
+		{ title: 'kndwin',	link: '/'}, 
+		{ title: 'blog',		link: '/blog'},
+		{ title: 'work',		link: '/work'},
+	]
 	return (
 		<Page size='small'>
 			<Page.Header style={{
-				paddingTop: '2em', 
+				padding: '4em 0 1em 0', 
 				display: 'flex', 
 				justifyContent: 'center',
 				}}>
+				<Row style={{ alignItems: 'center'}}>
+				{links.map( ({ title, link }) => (
+					<Text style={{ marginRight: '1em'}} 
+						type={ route == link ? 'success' : 'default'} 
+						h4 
+						key={title}>
+						<Link href={link}>
+							{title}
+						</Link>
+					</Text>
+				))}
+				</Row>
 			</Page.Header>
 			<Page.Content style={{ paddingTop: '0.5em'}}>
 				{children}
