@@ -4,17 +4,17 @@ import { Layout} from "components";
 export default function WorkPage() {
 	const work = [
 		{ 
-			url: 'min.kndwin.dev', 
+			url: 'https://min.kndwin.dev', 
 			source: 'https://github.com/kndwin/min', 
 			img:'/work/min.webp'
 		}, {
-			url: 'jobs.kndwin.dev', 
+			url: 'https://jobs.kndwin.dev', 
 			source: 'https://github.com/kndwin/jobs-nextjs', 
 			img:'/work/jobs.webp'
 		}, {
-			url: 'stop.pitbull.community', 
-			source: 'https://github.com/kndwin/', 
-			img:'/work/min.webp'
+			url: 'https://kndwin.dev', 
+			source: 'https://github.com/kndwin/kndwindev', 
+			img:'/work/kndwindev.webp'
 		}
 	]
 	return (
