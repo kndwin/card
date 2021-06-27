@@ -30,10 +30,11 @@ export default function FaceModel(props: JSX.IntrinsicElements['group']) {
 	const { x, y } = useMousePosition()
 	const { camera } = useThree()
 
-	let vectorToLookAt = new THREE.Vector3( x, -y - 100, -10).unproject(camera)
+	let vectorToLookAt = new THREE.Vector3( x , -y - 100, -5).unproject(camera)
 
 	useFrame(() => {
 		if (group.current) {
+			console.table(vectorToLookAt)
 			group.current.lookAt(vectorToLookAt)
 		}
 	})

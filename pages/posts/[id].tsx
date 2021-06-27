@@ -5,9 +5,9 @@ import gfm from 'remark-gfm'
 
 import { Layout } from 'components'
 import { getAllPostIds, getPostData } from 'utils/posts'
-import { Row, Text} from '@geist-ui/react'
-import { Clock } from '@geist-ui/react-icons'
+import { Breadcrumbs, Link, Row, Text} from '@geist-ui/react'
 import { components } from 'components'
+import styles from './markdown.module.scss'
 
 type PostData = {
   postData: {
@@ -21,19 +21,29 @@ export default function Post({ postData } : PostData) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
-      </Head>
-      <article>
-				<Text h2>
+				<title>{postData.title}</title>
+			</Head>
+			<Breadcrumbs >
+				<Link href="/blog">
+					<Breadcrumbs.Item>Blog</Breadcrumbs.Item>
+				</Link>
+				<Breadcrumbs.Item>{postData.title}</Breadcrumbs.Item>
+			</Breadcrumbs>
+      <article style={{ margin: '2em 0'}}>
+				<Text h1 size='2.5em'>
 					{postData.title}
 				</Text>
 				<ReactMarkdown
+					className={styles.markdown}
 					plugins={[gfm]}
 					components={components}
 				>
 					{postData.fileContents}
 				</ReactMarkdown>
       </article>
+			<Link href='#' block>
+					Back to top	⬆
+			</Link>
     </Layout>
   )
 }

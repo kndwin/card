@@ -1,7 +1,10 @@
-import { Col, Button, Row, Display, Text } from '@geist-ui/react'
+import { Grid, Col, Button, Row, Display, Text } from '@geist-ui/react'
 import { NextDotJs, Typescript, ThreeDotJs,
+Chakraui, Sass,
 NodeDotJs, Express, Postgresql,
-Amazonaws, Graphql, Solidity
+Redis, Mysql, 
+Amazonaws, Graphql, Solidity,
+Docker, Kubernetes, Git, Travisci
 } from '@icons-pack/react-simple-icons';
 import { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
@@ -22,8 +25,8 @@ export default function Home() {
 			{ mounted &&
 			<Display shadow 
 				style={{ margin: '1em 0 0 0'}}
-				caption={`wannabe full stack engineer`}>
-				<Canvas style={{ height: '20em' }} 
+				caption={`wannabe devops`}>
+				<Canvas style={{ height: '20em', width: '20em' }} 
 					orthographic 
 					camera={{zoom: 30}}
 				>
@@ -36,19 +39,29 @@ export default function Home() {
 			}
 
 			<Row style={{ margin: '3em 0'}} justify='center'>
-				<Col span={8}>
-					<Row justify='center'>
-						<Col><NextDotJs /></Col>
-						<Col><Typescript  /></Col>
-						<Col><ThreeDotJs /></Col>
-						<Col><NodeDotJs /></Col>
-						<Col><Express /></Col>
-						<Col><Postgresql /></Col>
-						<Col><Amazonaws /></Col>
-						<Col><Graphql  /></Col>
-						<Col><Solidity /></Col>
-					</Row>
-				</Col>
+				<Grid.Container justify='center' gap={2} style={{ width: '25em'}}>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Front-end</Text></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><NextDotJs  size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Typescript size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Chakraui   size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Sass			 size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Back-end</Text></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><NodeDotJs	 size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Express		 size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Postgresql size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Mysql			 size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Redis			 size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Graphql    size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Devops</Text></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Amazonaws  size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Docker     size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Kubernetes size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Git     size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Travisci     size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Others</Text></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Solidity   size={40}/></Grid>
+					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><ThreeDotJs size={40}/></Grid>
+				</Grid.Container>
 			</Row>
 
 			<Row style={{ display: 'flex', justifyContent: 'center'}}>

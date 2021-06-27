@@ -1,0 +1,30 @@
+.markdown {
+	font-size: 1.3em; 
+	pre {
+		margin: 0;
+		border: 0;
+	}
+	ul li::before {
+		content: '⚪';
+	}
+	ol li::before {
+		content: ''
+	}
+	th, td {
+		text-align: left;
+		padding: 0.5rem; 
+		border: 1px solid black; 
+	}
+
+	th {
+		background-color: #eee; 
+		border-radius: 6px;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-radius: 6px;
+		border-style: hidden; /* hide standard table (collapsed) border */
+		box-shadow: 0 0 0 1px black; /* this draws the table border  */
+}
+}

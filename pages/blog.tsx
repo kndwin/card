@@ -1,4 +1,4 @@
-import { Col, Row, Link, Text } from "@geist-ui/react";
+import { Card, Col, Row, Link, Text } from "@geist-ui/react";
 import {Layout} from "components";
 import {GetStaticProps} from "next";
 import {getSortedPostsData} from "utils/posts";
@@ -15,23 +15,21 @@ export default function BlogPage({ allPostsData }: AllPostData) {
 	return (
 		<Layout>
 			{ allPostsData.map(({ id, date, title}) => (
-				<Row key={id} justify='center' >
-					<Col span={16} >
+				<Card key={id} hoverable >
 						<Row style={{ alignItems: 'center'}}>
-							<Col span={8}>
-								<Text >
-									{new Date(date).toDateString()}
-								</Text>		
-							</Col>
 							<Col>
-								<Link style={{ fontWeight: 'bold'}} 
+								<Link style={{ fontWeight: 'bold', fontSize: '1.5em'}} 
 									block href={`/posts/${id}`}>
 									{title}
 								</Link>			
 							</Col>
+							<Col span={8}>
+								<Text style={{ fontSize: '1.3em'}} >
+									{new Date(date).toDateString()}
+								</Text>		
+							</Col>
 						</Row>
-					</Col>
-				</Row>
+				</Card>
 			))}
 		</Layout>
 	)

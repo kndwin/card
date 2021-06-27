@@ -13,7 +13,7 @@ date: "2021-06-19"
 - The pace though was a bit slow so by week 4 / half way, I only finished around 30% of the course content.
 - To speed things up, I skipped the follow along and watch the videos on 2x speed (sometimes 3x with the javascript)
 ```javascript
-document.querySelector('video).playbackRate = 3.0
+document.querySelector('video').playbackRate = 3.0
 ```
 - Did the above method for 3 weeks. With 1 week left, and around 80% done. I took 3 days of work off and watched the rest of it with 2 days to spare.
 ### Practice Papers
