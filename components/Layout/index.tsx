@@ -1,6 +1,6 @@
 import { Row, Spacer, Text, Link, Page, Toggle } from '@geist-ui/react'
 import {useRouter} from 'next/dist/client/router'
-import React, { ReactElement } from "react"
+import React, { ReactElement, useEffect, useState } from "react"
 
 export interface LayoutProps {
 	children: React.ReactNode,
@@ -9,6 +9,15 @@ export interface LayoutProps {
 export default function Layout({ children }: LayoutProps): ReactElement | null {
 	const router = useRouter()
 	const route = router.route
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	})
+
+	if (!mounted)  {
+		return null
+	}
 	const links = [
 		{ title: 'kndwin',	link: '/'}, 
 		{ title: 'blog',		link: '/blog'},
