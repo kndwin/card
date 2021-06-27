@@ -1,13 +1,19 @@
 .markdown {
-	font-size: 1.3em; 
+	font-size: 1.2em; 
 	pre {
 		margin: 0;
 		border: 0;
+		font-size: 1em; 
 	}
-	ul li::before {
-		content: '⚪';
-	}
-	ol li::before {
+	ul li {
+		&::before {
+			margin-left: -1.2em; 
+			content: '⏺';
+			font-size: 0.8em;
+			color: black; 
+		}
+
+	}	ol li::before {
 		content: ''
 	}
 	th, td {
