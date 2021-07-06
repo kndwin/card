@@ -1,4 +1,5 @@
-import { Row, Spacer, Text, Link, Page, Toggle } from '@geist-ui/react'
+import { Twitter, Github, FileText } from '@geist-ui/react-icons'
+import { Row, Button, Text, Link, Page } from '@geist-ui/react'
 import {useRouter} from 'next/dist/client/router'
 import React, { ReactElement, useEffect, useState } from "react"
 
@@ -13,7 +14,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 
 	useEffect(() => {
 		setMounted(true)
-	})
+	}, [])
 
 	if (!mounted)  {
 		return null
@@ -51,6 +52,33 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 				justifyContent: 'center',
 				padding: '1.5em 0'
 			}}>
+				<a href="https://github.com/kndwin">
+					<Button icon={<Github/>} 
+						auto size="small" 
+						style={{ margin: '0 0.5em'}}
+						ghost type="secondary" 
+					>
+						Github
+					</Button>
+				</a>
+				<a href="https://twitter.com/kndwindev">
+					<Button icon={<Twitter color='twitter'/>} 
+						auto size="small" 
+						ghost type="success" 
+						style={{ margin: '0 0.5em'}}
+					>
+						Twitter
+					</Button>
+				</a>
+				<a href="/KevinNguyen.pdf">
+					<Button icon={<FileText color='twitter'/>} 
+						auto size="small" 
+						type="secondary" 
+						style={{ margin: '0 0.5em'}}
+					>
+						Resume
+					</Button>
+				</a>
 			</Page.Footer>
 		</Page>
 	)

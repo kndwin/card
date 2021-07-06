@@ -1,4 +1,4 @@
-import { Grid, Col, Button, Row, Display, Text } from '@geist-ui/react'
+import { Grid,  Row, Display, Text } from '@geist-ui/react'
 import { NextDotJs, Typescript, ThreeDotJs,
 Chakraui, Sass,
 NodeDotJs, Express, Postgresql,
@@ -10,7 +10,6 @@ import { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { FaceModel } from 'components'
 import { Layout } from 'components'
-import { Twitter, Github } from '@geist-ui/react-icons'
 
 export default function Home() {
 	const [mounted,setMounted] = useState(false)
@@ -64,26 +63,6 @@ export default function Home() {
 				</Grid.Container>
 			</Row>
 
-			<Row style={{ display: 'flex', justifyContent: 'center'}}>
-				<a href="https://github.com/kndwin">
-					<Button icon={<Github/>} 
-						auto size="small" 
-						style={{ margin: '0 0.5em'}}
-						ghost type="secondary" 
-					>
-						Github
-					</Button>
-				</a>
-				<a href="https://twitter.com/kndwindev">
-					<Button icon={<Twitter color='twitter'/>} 
-						auto size="small" 
-						ghost type="success" 
-						style={{ margin: '0 0.5em'}}
-					>
-						Twitter
-					</Button>
-				</a>
-			</Row>
 		</Layout>
 	)
 }
