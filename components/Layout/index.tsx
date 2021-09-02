@@ -44,7 +44,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 				))}
 				</Row>
 			</Page.Header>
-			<Page.Content style={{ paddingTop: '0.5em'}}>
+			<Page.Content className="h-full" style={{ paddingTop: '0.5em'}}>
 				{children}
 			</Page.Content>
 			<Page.Footer style={{ 

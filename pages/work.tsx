@@ -4,9 +4,9 @@ import { Layout } from "components";
 export default function WorkPage() {
   const work = [
     {
-      url: "https://kndwin.dev",
-      source: "https://github.com/kndwin/kndwindev",
-      img: "/work/kndwindev.gif",
+      url: "https://dofie.kndwin.dev",
+      source: "https://github.com/kndwin/book-client",
+      img: "/work/dofie.gif",
     },
     {
       url: "https://resumesfor.dev",
@@ -22,7 +22,12 @@ export default function WorkPage() {
             <Card hoverable>
               <Card.Content>
                 <Image.Browser invert url={url}>
-                  <Image height={300} alt="image" src={img} />
+                  <Image
+                    className="object-fill"
+                    height={190}
+                    alt="image"
+                    src={img}
+                  />
                 </Image.Browser>
               </Card.Content>
               <Card.Footer>

@@ -1,68 +1,110 @@
-import { Grid,  Row, Display, Text } from '@geist-ui/react'
-import { NextDotJs, Typescript, ThreeDotJs,
-Chakraui, Sass,
-NodeDotJs, Express, Postgresql,
-Redis, Mysql, 
-Amazonaws, Graphql, Solidity,
-Docker, Kubernetes, Git, Travisci
-} from '@icons-pack/react-simple-icons';
-import { Suspense, useEffect, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { FaceModel } from 'components'
-import { Layout } from 'components'
+import { Row, Link, Display, Text } from "@geist-ui/react";
+import {
+  NextDotJs,
+  Typescript,
+  ThreeDotJs,
+  Chakraui,
+  Tailwindcss,
+  Sass,
+  Linux,
+  NodeDotJs,
+  Express,
+  Postgresql,
+  Redis,
+  Mysql,
+  Amazonaws,
+  Graphql,
+  Solidity,
+  Docker,
+  Kubernetes,
+  Git,
+} from "@icons-pack/react-simple-icons";
+import { Suspense, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { FaceModel } from "components";
+import { Layout } from "components";
 
 export default function Home() {
-	const [mounted,setMounted] = useState(false)
-	useEffect(() => {
-		setMounted(true)
-	}, [])
-	if (!mounted) {
-		return null
-	}
-	return (
-		<Layout>
-			{ mounted &&
-			<Display shadow 
-				style={{ margin: '1em 0 0 0'}}
-				caption={`wannabe devops`}>
-				<Canvas style={{ height: '20em', width: '20em' }} 
-					orthographic 
-					camera={{zoom: 30}}
-				>
-					<ambientLight intensity={0.7} />
-					<Suspense fallback={null}>
-						<FaceModel />
-					</Suspense>
-				</Canvas>
-			</Display>
-			}
-
-			<Row style={{ margin: '3em 0'}} justify='center'>
-				<Grid.Container justify='center' gap={2} style={{ width: '25em'}}>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Front-end</Text></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><NextDotJs  size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Typescript size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Chakraui   size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Sass			 size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Back-end</Text></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><NodeDotJs	 size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Express		 size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Postgresql size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Mysql			 size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Redis			 size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Graphql    size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Devops</Text></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Amazonaws  size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Docker     size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Kubernetes size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Git     size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Travisci     size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={24}><Text style={{ fontWeight: 'bold', fontSize: '1.5em'}}>Others</Text></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><Solidity   size={40}/></Grid>
-					<Grid style={{ display: 'flex', justifyContent: 'center'}} xs={8} sm={4}><ThreeDotJs size={40}/></Grid>
-				</Grid.Container>
-			</Row>
-
-		</Layout>
-	)
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null;
+  }
+  return (
+    <Layout>
+      <Row className="flex-col items-center justify-center h-full p-4 md:flex-row">
+        <div
+          className="flex flex-col items-center justify-center w-full h-full p-4 pt-8 md:pt-16"
+        >
+          <Text h3 b>
+            👋 Hello! I'm Kevin
+          </Text>
+          <Text>
+            💻 currently a junior dev at{" "}
+            <Link color href="https://atelier.co">
+              atelier.co
+            </Link>
+          </Text>
+          <Text h3 className="mt-8">
+            🔨 Tools I use
+          </Text>
+          <div className="flex mt-4">
+            <Text className="" b>
+              Frontend:
+            </Text>
+            <div className="flex pl-2 space-x-2">
+              <NextDotJs />
+              <Typescript />
+              <ThreeDotJs />
+              <Tailwindcss />
+              <Sass />
+              <Chakraui />
+            </div>
+          </div>
+          <div className="flex mt-4">
+            <Text className="" b>
+              Backend:
+            </Text>
+            <div className="flex pl-2 space-x-2">
+              <NodeDotJs />
+              <Express />
+              <Postgresql />
+              <Redis />
+              <Mysql />
+              <Amazonaws />
+            </div>
+          </div>
+          <div className="flex mt-4">
+            <Text className="" b>
+              Other:
+            </Text>
+            <div className="flex pl-2 space-x-2">
+              <Graphql />
+              <Solidity />
+              <Docker />
+              <Kubernetes />
+              <Linux />
+              <Git />
+            </div>
+          </div>
+        </div>
+        {mounted && (
+          <Display shadow caption={"Move your mouse!"}>
+            <Canvas
+              style={{ height: "20em", width: "20em" }}
+              orthographic
+              camera={{ zoom: 30 }}
+            >
+              <ambientLight intensity={0.7} />
+              <Suspense fallback={null}>
+                <FaceModel />
+              </Suspense>
+            </Canvas>
+          </Display>
+        )}
+      </Row>
+    </Layout>
+  );
 }
