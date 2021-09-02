@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 		{ title: 'work',		link: '/work'},
 	]
 	return (
-		<Page size='small'>
+		<Page>
 			<Page.Header style={{
 				padding: '4em 0 1em 0', 
 				display: 'flex', 
