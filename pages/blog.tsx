@@ -17,6 +17,7 @@ export default function BlogPage({ allPostsData }: AllPostData) {
 			<div className='flex flex-col items-center justify-center w-full h-full'>
       {allPostsData.map(({ id, date, title }) => (
         <div
+					key={id}
           style={{
             alignItems: "center",
             display: "flex",
