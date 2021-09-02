@@ -1,5 +1,5 @@
 import { Twitter, Github, FileText } from '@geist-ui/react-icons'
-import { Row, Button, Text, Link, Page } from '@geist-ui/react'
+import { Button, Text, Link, Page } from '@geist-ui/react'
 import {useRouter} from 'next/dist/client/router'
 import React, { ReactElement, useEffect, useState } from "react"
 
@@ -31,7 +31,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 				display: 'flex', 
 				justifyContent: 'center',
 				}}>
-				<Row style={{ alignItems: 'center'}}>
+				<div style={{ justifyContent: 'center', width: '100%', display: 'flex'}}>
 				{links.map( ({ title, link }) => (
 					<Text style={{ marginRight: '1em'}} 
 						type={ route == link ? 'success' : 'default'} 
@@ -42,7 +42,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 						</Link>
 					</Text>
 				))}
-				</Row>
+				</div>
 			</Page.Header>
 			<Page.Content className="h-full" style={{ paddingTop: '0.5em'}}>
 				{children}
