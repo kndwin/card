@@ -1,4 +1,4 @@
-import { Row, Link, Display, Text } from "@geist-ui/react";
+import { Link, Display, Text } from "@geist-ui/react";
 import {
   NextDotJs,
   Typescript,
@@ -34,7 +34,7 @@ export default function Home() {
   }
   return (
     <Layout>
-      <Row className="flex flex-col items-center justify-center w-full h-full p-4">
+      <div className="flex flex-col items-center justify-center w-full h-full p-4">
         {mounted && (
           <Display shadow caption={"Move your mouse!"}>
             <Canvas
@@ -104,7 +104,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </Row>
+      </div>
     </Layout>
   );
 }
