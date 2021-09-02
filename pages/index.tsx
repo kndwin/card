@@ -39,10 +39,10 @@ export default function Home() {
           className="flex flex-col items-center justify-center w-full h-full p-4 pt-8 md:pt-16"
         >
           <Text h3 b>
-            👋 Hello! I'm Kevin
+            👋 Hello! I&apos;m Kevin
           </Text>
           <Text>
-            💻 currently a junior dev at{" "}
+            💻 currently a dev at{" "}
             <Link color href="https://atelier.co">
               atelier.co
             </Link>
