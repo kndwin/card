@@ -30,7 +30,7 @@ export default function Post({ postData } : PostData) {
 				<Breadcrumbs.Item>{postData.title}</Breadcrumbs.Item>
 			</Breadcrumbs>
       <article style={{ margin: '2em 0'}}>
-				<Text h1 size='2.5em'>
+				<Text h1>
 					{postData.title}
 				</Text>
 				<ReactMarkdown
