@@ -5,7 +5,7 @@ import gfm from 'remark-gfm'
 
 import { Layout } from 'components'
 import { getAllPostIds, getPostData } from 'utils/posts'
-import { Breadcrumbs, Link, Row, Text} from '@geist-ui/react'
+import { Breadcrumbs, Link, Text} from '@geist-ui/react'
 import { components } from 'components'
 import styles from './markdown.module.scss'
 

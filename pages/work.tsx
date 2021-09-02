@@ -1,4 +1,4 @@
-import { Link, Card, Row, Grid, Image, Text } from "@geist-ui/react";
+import { Link, Card, Grid, Image } from "@geist-ui/react";
 import { Layout } from "components";
 
 export default function WorkPage() {
