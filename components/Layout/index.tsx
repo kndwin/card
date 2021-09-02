@@ -54,7 +54,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 			}}>
 				<a href="https://github.com/kndwin">
 					<Button icon={<Github/>} 
-						auto size="small" 
+						auto
 						style={{ margin: '0 0.5em'}}
 						ghost type="secondary" 
 					>
@@ -63,7 +63,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 				</a>
 				<a href="https://twitter.com/kndwindev">
 					<Button icon={<Twitter color='twitter'/>} 
-						auto size="small" 
+						auto
 						ghost type="success" 
 						style={{ margin: '0 0.5em'}}
 					>
@@ -72,7 +72,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
 				</a>
 				<a href="/KevinNguyen.pdf">
 					<Button icon={<FileText color='twitter'/>} 
-						auto size="small" 
+						auto
 						type="secondary" 
 						style={{ margin: '0 0.5em'}}
 					>

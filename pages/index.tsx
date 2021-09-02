@@ -34,9 +34,23 @@ export default function Home() {
   }
   return (
     <Layout>
-      <Row className="flex-col items-center justify-center h-full p-4 md:flex-row">
+      <Row className="flex flex-col items-center justify-center w-full h-full p-4">
+        {mounted && (
+          <Display shadow caption={"Move your mouse!"}>
+            <Canvas
+              style={{ height: "20em", width: "20em" }}
+              orthographic
+              camera={{ zoom: 30 }}
+            >
+              <ambientLight intensity={0.7} />
+              <Suspense fallback={null}>
+                <FaceModel />
+              </Suspense>
+            </Canvas>
+          </Display>
+        )}
         <div
-          className="flex flex-col items-center justify-center w-full h-full p-4 pt-8 md:pt-16"
+          className="flex flex-col items-center justify-center w-full h-full max-w-lg p-4 pt-8 mx-auto mb-8 md:pt-16"
         >
           <Text h3 b>
             👋 Hello! I&apos;m Kevin
@@ -90,20 +104,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {mounted && (
-          <Display shadow caption={"Move your mouse!"}>
-            <Canvas
-              style={{ height: "20em", width: "20em" }}
-              orthographic
-              camera={{ zoom: 30 }}
-            >
-              <ambientLight intensity={0.7} />
-              <Suspense fallback={null}>
-                <FaceModel />
-              </Suspense>
-            </Canvas>
-          </Display>
-        )}
       </Row>
     </Layout>
   );
