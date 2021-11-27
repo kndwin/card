@@ -2,6 +2,7 @@ import { Link, Card, Grid, Image } from "@geist-ui/react";
 import { Layout } from "components";
 
 export default function WorkPage() {
+
   const work = [
     {
       url: "https://dofie.kndwin.dev",
@@ -10,10 +11,11 @@ export default function WorkPage() {
     },
     {
       url: "https://resumesfor.dev",
-      source: "https://github.com/kndwin/cv4dev",
+      source: "https://github.com/kndwin/resumesfordev",
       img: "/work/resumesfordev.gif/",
     },
   ];
+
   return (
     <Layout>
       <Grid.Container gap={2} justify="flex-start">
