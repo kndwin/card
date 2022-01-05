@@ -1,17 +1,17 @@
 import { Link, Display, Text } from "@geist-ui/react";
 import {
-  NextDotJs,
+	Apollographql, 
+  Nextdotjs,
   Typescript,
-  ThreeDotJs,
+  Threedotjs,
   Chakraui,
   Tailwindcss,
   Sass,
   Linux,
-  NodeDotJs,
+  Nodedotjs,
   Express,
   Postgresql,
-  Redis,
-  Mysql,
+	Prisma, 
   Amazonaws,
   Graphql,
   Solidity,
@@ -69,9 +69,9 @@ export default function Home() {
               Frontend:
             </Text>
             <div className="flex pl-2 space-x-2">
-              <NextDotJs />
+              <Nextdotjs />
               <Typescript />
-              <ThreeDotJs />
+              <Threedotjs />
               <Tailwindcss />
               <Sass />
               <Chakraui />
@@ -82,11 +82,11 @@ export default function Home() {
               Backend:
             </Text>
             <div className="flex pl-2 space-x-2">
-              <NodeDotJs />
+              <Nodedotjs />
               <Express />
+							<Apollographql />
               <Postgresql />
-              <Redis />
-              <Mysql />
+							<Prisma />
               <Amazonaws />
             </div>
           </div>
