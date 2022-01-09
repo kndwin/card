@@ -71,7 +71,7 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
       <main className="flex-1 h-full pt-2">{children}</main>
       <footer className="flex justify-center w-full py-8">
         {socials.map(({ title, link, icon, type, ghost = false }: any) => (
-          <Tooltip text={title} type="dark">
+          <Tooltip key={link} text={title} type="dark">
             <a className="mx-2 my-4" href={link}>
               <Button scale={0.7} auto type={type} icon={icon} ghost={ghost} />
             </a>

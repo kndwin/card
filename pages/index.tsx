@@ -39,14 +39,9 @@ export default function Home() {
 
 const Intro = () => {
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => setMounted(true), []);
   const { city, error } = useLocation();
-  console.log({ city, error });
 
-  if (!mounted) {
-    return null;
-  }
   return (
     <>
       <Text
@@ -70,7 +65,7 @@ const Intro = () => {
             </Canvas>
           )}
         </span>
-        hey there!
+        hey!
       </Text>
       <Card type="lite">
         <Text>
@@ -83,7 +78,7 @@ const Intro = () => {
           </span>
           <br />
           <span className="text-lg font-bold">
-            I'm a software engineer
+						{"I'm a software engineer"}
             {city === "Sydney" ? "." : " based in Sydney."}
           </span>
         </Text>
@@ -123,17 +118,15 @@ const PastWork = () => {
         💼 work
       </Text>
       <Card type="lite">
-        {pastWork.map(({ link, role, company, techStack, current }) => (
-          <div className="mb-4">
+        {pastWork.map(({ link, role, company, current }) => (
+          <div key={link} className="mb-4">
             <p className="my-0 text-2xl font-bold">
               {current ? "currently " : "previously "}
               <Link color href={link}>
                 @{company}
               </Link>
             </p>
-            <Text className="m-0 text-2xl leading-6">
-              {role}
-            </Text>
+            <Text className="m-0 text-2xl leading-6">{role}</Text>
           </div>
         ))}
       </Card>
@@ -231,7 +224,13 @@ const Tools = () => {
       <Card type="lite">
         <div className="grid gap-6 grid-cols-6">
           {tools.map(({ name, icon }) => (
-            <Tooltip enterDelay={0} leaveDelay={0} type="dark" text={name}>
+            <Tooltip
+              key={name}
+              enterDelay={0}
+              leaveDelay={0}
+              type="dark"
+              text={name}
+            >
               {icon}
             </Tooltip>
           ))}
