@@ -1,85 +1,83 @@
-import { Twitter, Github, FileText } from '@geist-ui/react-icons'
-import { Button, Text, Link, Page } from '@geist-ui/react'
-import {useRouter} from 'next/dist/client/router'
-import React, { ReactElement, useEffect, useState } from "react"
+import { Twitter, Github, FileText, Linkedin } from "@geist-ui/react-icons";
+import { Button, Text, Link, Page, Tooltip } from "@geist-ui/react";
+import { useRouter } from "next/dist/client/router";
+import React, { ReactElement, useEffect, useState } from "react";
 
 export interface LayoutProps {
-	children: React.ReactNode,
+  children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps): ReactElement | null {
-	const router = useRouter()
-	const route = router.route
-	const [mounted, setMounted] = useState(false)
+  const router = useRouter();
+  const route = router.route;
+  const [mounted, setMounted] = useState(false);
 
-	useEffect(() => {
-		setMounted(true)
-	}, [])
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-	if (!mounted)  {
-		return null
-	}
-	const links = [
-		{ title: 'kndwin',	link: '/'}, 
-		{ title: 'blog',		link: '/blog'},
-		{ title: 'work',		link: '/work'},
-	]
-	return (
-		<Page>
-			<Page.Header style={{
-				padding: '4em 0 1em 0', 
-				display: 'flex', 
-				justifyContent: 'center',
-				}}>
-				<div style={{ justifyContent: 'center', width: '100%', display: 'flex'}}>
-				{links.map( ({ title, link }) => (
-					<Text style={{ marginRight: '1em'}} 
-						type={ route == link ? 'success' : 'default'} 
-						h4 
-						key={title}>
-						<Link href={link}>
-							{title}
-						</Link>
-					</Text>
-				))}
-				</div>
-			</Page.Header>
-			<Page.Content className="h-full" style={{ paddingTop: '0.5em'}}>
-				{children}
-			</Page.Content>
-			<Page.Footer style={{ 
-				display: 'flex', 
-				justifyContent: 'center',
-				padding: '1.5em 0'
-			}}>
-				<a href="https://github.com/kndwin">
-					<Button icon={<Github/>} 
-						auto
-						style={{ margin: '0 0.5em'}}
-						ghost type="secondary" 
-					>
-						Github
-					</Button>
-				</a>
-				<a href="https://twitter.com/kndwindev">
-					<Button icon={<Twitter color='twitter'/>} 
-						auto
-						ghost type="success" 
-						style={{ margin: '0 0.5em'}}
-					>
-						Twitter
-					</Button>
-				</a>
-				<a href="/KevinNguyen.pdf">
-					<Button icon={<FileText color='twitter'/>} 
-						auto
-						type="secondary" 
-						style={{ margin: '0 0.5em'}}
-					>
-						Resume
-					</Button>
-				</a>
-			</Page.Footer>
-		</Page>
-	)
+  if (!mounted) {
+    return null;
+  }
+  const links = [
+    { title: "kndwin", link: "/" },
+    { title: "blog", link: "/blog" },
+    { title: "work", link: "/work" },
+  ];
+  const socials = [
+    {
+      title: "LinkedIn",
+      link: "https://www.linkedin.com/in/kndwindev/",
+      icon: <Linkedin />,
+      type: "success",
+      ghost: true,
+    },
+    {
+      title: "Twitter",
+      link: "https://twitter.com/kndwin",
+      icon: <Twitter />,
+      type: "success",
+    },
+    {
+      title: "Github",
+      link: "https://github.com/kndwin",
+      icon: <Github />,
+      type: "secondary",
+    },
+    {
+      title: "Resume",
+      link: "/KevinNguyen.pdf",
+      icon: <FileText />,
+      type: "secondary",
+      ghost: true,
+    },
+  ];
+  return (
+    <div className="container flex flex-col items-center w-full h-full min-h-screen mx-auto">
+      <header className="flex justify-center mt-2 mb-8">
+        <div className="flex justify-center w-full pt-12">
+          {links.map(({ title, link }) => (
+            <Text
+              className="mx-4"
+              type={route == link ? "success" : "default"}
+              key={title}
+              h4
+            >
+              <Link href={link}>{title}</Link>
+            </Text>
+          ))}
+        </div>
+      </header>
+      <main className="flex-1 h-full pt-2">{children}</main>
+      <footer className="flex justify-center w-full py-8">
+        {socials.map(({ title, link, icon, type, ghost = false }: any) => (
+          <Tooltip text={title} type="dark">
+            <a className="mx-2 my-4" href={link}>
+              <Button scale={0.7} auto type={type} icon={icon} ghost={ghost} />
+            </a>
+          </Tooltip>
+        ))}
+      </footer>
+    </div>
+  );
 }

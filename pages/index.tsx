@@ -1,6 +1,7 @@
-import { Link, Display, Text } from "@geist-ui/react";
+import clsx from "clsx";
+import { Link, Text, Card, Tag, Tooltip } from "@geist-ui/react";
 import {
-	Apollographql, 
+  Apollographql,
   Nextdotjs,
   Typescript,
   Threedotjs,
@@ -11,7 +12,7 @@ import {
   Nodedotjs,
   Express,
   Postgresql,
-	Prisma, 
+  Prisma,
   Amazonaws,
   Graphql,
   Solidity,
@@ -21,90 +22,221 @@ import {
 } from "@icons-pack/react-simple-icons";
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { FaceModel } from "components";
-import { Layout } from "components";
+import { FaceModel, Layout } from "components";
+import { useLocation } from "hooks";
 
 export default function Home() {
+  return (
+    <Layout>
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <Intro />
+        <PastWork />
+        <Tools />
+      </div>
+    </Layout>
+  );
+}
+
+const Intro = () => {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+
+  useEffect(() => setMounted(true), []);
+  const { city, error } = useLocation();
+  console.log({ city, error });
+
   if (!mounted) {
     return null;
   }
   return (
-    <Layout>
-      <div className="flex flex-col items-center justify-center w-full h-full p-4">
-        {mounted && (
-          <Display shadow caption={"Move your mouse!"}>
+    <>
+      <Text
+        h1
+        className={clsx(
+          "flex flex-col items-center mb-8 text-4xl",
+          "sm:text-6xl sm:flex-row"
+        )}
+      >
+        <span className="w-16 h-16 mb-8 mr-4 sm:mb-0">
+          {mounted && (
             <Canvas
-              style={{ height: "20em", width: "20em" }}
+              className="w-full h-full"
               orthographic
-              camera={{ zoom: 30 }}
+              camera={{ zoom: 15 }}
             >
               <ambientLight intensity={0.7} />
               <Suspense fallback={null}>
                 <FaceModel />
               </Suspense>
             </Canvas>
-          </Display>
-        )}
-        <div
-          className="flex flex-col items-center justify-center w-full h-full max-w-lg p-4 pt-8 mx-auto mb-16 md:pt-16"
-        >
-          <Text h3 b>
-            👋 Hello! I&apos;m Kevin
-          </Text>
-          <Text>
-            💻 currently a dev at{" "}
-            <Link color href="https://atelier.co">
-              atelier.co
-            </Link>
-          </Text>
-          <Text h3 className="mt-8">
-            🔨 Tools I use
-          </Text>
-          <div className="flex mt-4">
-            <Text className="" b>
-              Frontend:
-            </Text>
-            <div className="flex pl-2 space-x-2">
-              <Nextdotjs />
-              <Typescript />
-              <Threedotjs />
-              <Tailwindcss />
-              <Sass />
-              <Chakraui />
-            </div>
-          </div>
-          <div className="flex mt-4">
-            <Text className="" b>
-              Backend:
-            </Text>
-            <div className="flex pl-2 space-x-2">
-              <Nodedotjs />
-              <Express />
-							<Apollographql />
-              <Postgresql />
-							<Prisma />
-              <Amazonaws />
-            </div>
-          </div>
-          <div className="flex mt-4">
-            <Text className="" b>
-              Other:
-            </Text>
-            <div className="flex pl-2 space-x-2">
-              <Graphql />
-              <Solidity />
-              <Docker />
-              <Kubernetes />
-              <Linux />
-              <Git />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+          )}
+        </span>
+        hey there!
+      </Text>
+      <Card type="lite">
+        <Text>
+          <span className="text-lg font-bold">
+            {city && `You're from ${city}?`}
+            <br />
+            {city === "Sydney"
+              ? "No way! I'm from Sydney too!"
+              : "Welcome to my site!"}
+          </span>
+          <br />
+          <span className="text-lg font-bold">
+            I'm a software engineer
+            {city === "Sydney" ? "." : " based in Sydney."}
+          </span>
+        </Text>
+      </Card>
+    </>
   );
-}
+};
+
+const PastWork = () => {
+  const pastWork = [
+    {
+      link: "https://mirvac.com",
+      role: "solution engineer",
+      company: "mirvac",
+      current: true,
+    },
+    {
+      link: "https://atelier.co",
+      role: "fullstack engineer",
+      company: "atelier",
+    },
+    {
+      link: "https://appian.com",
+      role: "solution engineer",
+      company: "appian",
+    },
+  ];
+  return (
+    <>
+      <Text
+        h1
+        className={clsx(
+          "flex flex-col items-center mt-16 mb-8 text-4xl",
+          "sm:text-6xl sm:flex-row mx-auto"
+        )}
+      >
+        💼 work
+      </Text>
+      <Card type="lite">
+        {pastWork.map(({ link, role, company, techStack, current }) => (
+          <div className="mb-4">
+            <p className="my-0 text-2xl font-bold">
+              {current ? "currently " : "previously "}
+              <Link color href={link}>
+                @{company}
+              </Link>
+            </p>
+            <Text className="m-0 text-2xl leading-6">
+              {role}
+            </Text>
+          </div>
+        ))}
+      </Card>
+    </>
+  );
+};
+
+const Tools = () => {
+  const tools = [
+    {
+      name: "Apollo GraphQL",
+      icon: <Apollographql />,
+    },
+    {
+      name: "Next.js",
+      icon: <Nextdotjs />,
+    },
+    {
+      name: "TypeScript",
+      icon: <Typescript />,
+    },
+    {
+      name: "Three.js",
+      icon: <Threedotjs />,
+    },
+    {
+      name: "Chakra UI",
+      icon: <Chakraui />,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <Tailwindcss />,
+    },
+    {
+      name: "Sass",
+      icon: <Sass />,
+    },
+    {
+      name: "Linux",
+      icon: <Linux />,
+    },
+    {
+      name: "Node.js",
+      icon: <Nodedotjs />,
+    },
+    {
+      name: "Express",
+      icon: <Express />,
+    },
+    {
+      name: "PostgreSQL",
+      icon: <Postgresql />,
+    },
+    {
+      name: "Prisma",
+      icon: <Prisma />,
+    },
+    {
+      name: "Amazon AWS",
+      icon: <Amazonaws />,
+    },
+    {
+      name: "GraphQL",
+      icon: <Graphql />,
+    },
+    {
+      name: "Solidity",
+      icon: <Solidity />,
+    },
+    {
+      name: "Docker",
+      icon: <Docker />,
+    },
+    {
+      name: "Kubernetes",
+      icon: <Kubernetes />,
+    },
+    {
+      name: "Git",
+      icon: <Git />,
+    },
+  ];
+
+  return (
+    <>
+      <Text
+        h1
+        className={clsx(
+          "flex flex-col items-center mt-16 mb-8 text-4xl",
+          "sm:text-6xl sm:flex-row"
+        )}
+      >
+        🔨 tools
+      </Text>
+      <Card type="lite">
+        <div className="grid gap-6 grid-cols-6">
+          {tools.map(({ name, icon }) => (
+            <Tooltip enterDelay={0} leaveDelay={0} type="dark" text={name}>
+              {icon}
+            </Tooltip>
+          ))}
+        </div>
+      </Card>
+    </>
+  );
+};

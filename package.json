@@ -17,6 +17,7 @@
     "@notionhq/client": "^0.2.0",
     "@react-three/drei": "^6.2.0",
     "@react-three/fiber": "^7.0.1",
+    "clsx": "^1.1.1",
     "framer-motion": "^4.1.17",
     "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.3",
@@ -30,7 +31,9 @@
     "remark": "^13.0.0",
     "remark-gfm": "^1.0.0",
     "sass": "^1.35.1",
+    "swr": "^1.1.2",
     "three": "^0.129.0",
+    "use-position": "^1.0.0",
     "zustand": "^3.5.4"
   },
   "devDependencies": {
@@ -38,6 +41,7 @@
     "@types/react": "17.0.11",
     "@types/react-syntax-highlighter": "^13.5.1",
     "@types/three": "^0.129.1",
+    "@types/use-position": "^0.0.0",
     "autoprefixer": "^10.3.1",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.0",
