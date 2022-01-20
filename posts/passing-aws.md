@@ -1,5 +1,5 @@
 ---
-title: "🎉 passing the aws developer associate"
+title: "Passing the AWS developer associate"
 date: "2021-06-19"
 ---
 

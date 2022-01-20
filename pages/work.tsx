@@ -2,7 +2,6 @@ import { Link, Card, Grid, Image } from "@geist-ui/react";
 import { Layout } from "components";
 
 export default function WorkPage() {
-
   const work = [
     {
       url: "https://dofie.kndwin.dev",
@@ -18,29 +17,36 @@ export default function WorkPage() {
 
   return (
     <Layout>
-      <Grid.Container gap={2} justify="flex-start">
+      <div className="grid grid-cols-1 gap-6">
         {work.map(({ url, source, img }) => (
-          <Grid key={url} xs={24} md={12} style={{ flexDirection: "column" }}>
-            <Card hoverable>
-              <Card.Content>
+          <Card key={url} hoverable className="h-20 w-60 sm:h-60">
+            <Card.Content>
+              <a href={url} target="_blank" rel="noreferrer">
                 <Image.Browser invert url={url}>
                   <Image
                     className="object-fill"
-                    height={190}
+                    height={30}
                     alt="image"
                     src={img}
                   />
                 </Image.Browser>
-              </Card.Content>
-              <Card.Footer>
-                <Link color icon underline target="_blank" href={source}>
-                  Visit source code on Github
-                </Link>
-              </Card.Footer>
-            </Card>
-          </Grid>
+              </a>
+            </Card.Content>
+            <Card.Footer>
+              <Link
+                color
+                icon
+                underline
+                target="_blank"
+                rel="noreferrer"
+                href={source}
+              >
+                Visit source code on Github
+              </Link>
+            </Card.Footer>
+          </Card>
         ))}
-      </Grid.Container>
+      </div>
     </Layout>
   );
 }

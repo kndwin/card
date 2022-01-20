@@ -1,5 +1,5 @@
 import { Twitter, Github, FileText, Linkedin } from "@geist-ui/react-icons";
-import { Button, Text, Link, Page, Tooltip } from "@geist-ui/react";
+import { Button, Text, Link, Tooltip, Toggle } from "@geist-ui/react";
 import { useRouter } from "next/dist/client/router";
 import React, { ReactElement, useEffect, useState } from "react";
 
@@ -54,11 +54,11 @@ export default function Layout({ children }: LayoutProps): ReactElement | null {
   ];
   return (
     <div className="container flex flex-col items-center w-full h-full min-h-screen mx-auto">
-      <header className="flex justify-center mt-2 mb-8">
-        <div className="flex justify-center w-full pt-12">
+      <header className="flex items-center justify-center mt-16 mb-8">
+        <div className="flex items-end w-full">
           {links.map(({ title, link }) => (
             <Text
-              className="mx-4"
+              className="mx-4 my-4"
               type={route == link ? "success" : "default"}
               key={title}
               h4
